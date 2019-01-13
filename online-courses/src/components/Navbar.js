@@ -1,21 +1,19 @@
 import React from 'react';
+import { Link, NavLink, withRouter } from 'react-router-dom';
 
 const  Navbar = () => {
     return (
-        <div className = 'nav-wrapper  container grey darken-3'>
-            
-                <a className='brand-logo center'>KESHA</a>
+        <nav className = 'nav-wrapper grey darken-3'>  
+            <div className='container'>        
+                <a className='brand-logo center' href="#">KESHA</a>
                 <ul className='left hide-on-med-and-down'>
-                    <li>Schedule</li>
-                    <li>Login</li>
-                    <li>Register</li>
-                    <li>About</li>
-                </ul>
-                <a href="#" data-target="nav-mobile" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                
-          
-        </div>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><NavLink to='/login'>Login</NavLink></li>
+                    <li><NavLink to='/about'>About</NavLink></li>
+                </ul>                
+            </div> 
+        </nav>
     );
 }
 
-export default Navbar;
+export default withRouter(Navbar);
