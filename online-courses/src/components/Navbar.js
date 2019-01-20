@@ -6,9 +6,10 @@ const  Navbar = () => {
         <nav className = 'nav-wrapper grey darken-3'>  
             <div className='container'>        
                 <a className='brand-logo center' href="#">KESHA</a>
-                <ul className='left hide-on-med-and-down'>
+                <ul className='left'>
                     <li><Link to='/'>Home</Link></li>
                     <li><NavLink to='/login'>Login</NavLink></li>
+                    <li><NavLink to='/register'>Register</NavLink></li>
                     <li><NavLink to='/about'>About</NavLink></li>
                 </ul>                
             </div> 
