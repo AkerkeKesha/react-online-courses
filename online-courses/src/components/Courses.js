@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import OneCourse from './OneCourse';
 import axios from 'axios';
 
 class Courses extends Component {
@@ -8,11 +9,13 @@ class Courses extends Component {
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/courses/')
             .then( res => {
-                console.log(res);
                 this.setState({ courses: res.data });
             })
 
     }
+    handleClick = (id) => {
+        console.log(id);
+    };
     render() {
         const { courses } = this.state;
         const courseList = courses.length ? (
@@ -21,6 +24,9 @@ class Courses extends Component {
                     <div className='collection-item' key={course.id}>
                         <h3 className='light'>{ course.title }</h3>
                         <p className='light'>{ course.description }</p>
+                        <div className = 'center'>
+                            <button className='btn grey' onClick={() => this.handleClick(course.id)}>Learn More</button>
+                        </div>
                     </div>
                 )
             })

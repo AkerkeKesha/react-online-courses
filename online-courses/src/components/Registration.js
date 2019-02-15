@@ -3,15 +3,19 @@ import axios from 'axios';
 
 class Registration extends Component {
     state = {
-        firstName: '',
-        lastName: '',
+        username:'',
         email: '',
         password: ''
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://127.0.0.1:8000/auth/users/create')
-            .then(res => console.log(res.data));
+        axios.post('http://127.0.0.1:8000/auth/users/create', this.state)
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(error => {
+                console.log(error.response);
+            })
     }
     handleChange = (e) => {
         this.setState({
@@ -27,16 +31,9 @@ class Registration extends Component {
                             <h3 className='teal-text'>Welcome</h3>
                             <div className='row'>
                                 <div className='input-field col s6'>
-                                    <input id='first_name' type='text' className='validate'
-                                    onChange = {this.handleChange} value={this.state.firstName}/>
-                                    <label htmlFor='first_name'>First Name</label>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='input-field col s6'>
-                                    <input id='last_name' type='text' className='validate'
-                                    onChange = {this.handleChange} value={this.state.lastName}/>
-                                    <label htmlFor='last_name'>Last Name</label>
+                                    <input id='username' type='text' className='validate'
+                                    onChange = {this.handleChange} value={this.state.username}/>
+                                    <label htmlFor='username'>User Name</label>
                                 </div>
                             </div>
                             <div className='row'>
